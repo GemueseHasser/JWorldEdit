@@ -27,7 +27,7 @@ public class Pos1 implements CommandExecutor {
         final Player player = util.getPlayer();
 
         assert player != null;
-        Positions.setOne(player.getLocation());
+        Positions.setOne(player.getLocation().clone().subtract(1, 1, 1));
         player.sendMessage(JWorldEdit.getPrefix() + "Position 1 gesetzt!");
         return true;
     }

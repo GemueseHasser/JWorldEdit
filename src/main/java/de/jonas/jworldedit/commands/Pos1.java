@@ -1,7 +1,7 @@
 package de.jonas.jworldedit.commands;
 
 import de.jonas.JWorldEdit;
-import de.jonas.jworldedit.PermissionType;
+import de.jonas.jworldedit.CommandUtil;
 import de.jonas.jworldedit.Positions;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -17,23 +17,15 @@ public class Pos1 implements CommandExecutor {
         @NotNull final String label,
         @NotNull final String[] args
     ) {
-        if (!(sender instanceof Player)) {
-            sender.sendMessage(JWorldEdit.getPrefix() + JWorldEdit.NO_PLAYER);
+        CommandUtil util = new CommandUtil(sender, 0, args, "pos1");
+
+        if (util.check()) {
             return true;
         }
 
-        final Player player = (Player) sender;
+        final Player player = util.getPlayer();
 
-        if (!player.hasPermission(PermissionType.POS_1.getPermission())) {
-            player.sendMessage(JWorldEdit.getPrefix() + JWorldEdit.NO_PERMISSIONS);
-            return true;
-        }
-
-        if (args.length != 0) {
-            player.sendMessage(JWorldEdit.getPrefix() + "Bitte benutze //pos1");
-            return true;
-        }
-
+        assert player != null;
         Positions.setOne(player.getLocation());
         player.sendMessage(JWorldEdit.getPrefix() + "Position 1 gesetzt!");
         return true;

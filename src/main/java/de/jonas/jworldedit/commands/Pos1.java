@@ -10,6 +10,9 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
 
+/**
+ * Es wird der Befehl, um die erste Position mithilfe eines Befehls zu setzen, implementiert.
+ */
 public final class Pos1 implements CommandExecutor {
     //<editor-fold desc="implementation">
     @Override

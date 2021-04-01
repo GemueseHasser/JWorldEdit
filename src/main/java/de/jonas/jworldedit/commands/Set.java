@@ -13,6 +13,10 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
 
+/**
+ * Es wird der Befehl, um den quadratischen Bereich zwischen den zuvor gesetzten Positionen mit einem bestimmten
+ * Material auszufüllen, implementiert.
+ */
 public final class Set implements CommandExecutor {
     //<editor-fold desc="implementation">
     @Override

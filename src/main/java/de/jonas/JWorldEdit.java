@@ -21,13 +21,17 @@ import static net.md_5.bungee.api.ChatColor.RED;
 import static net.md_5.bungee.api.ChatColor.WHITE;
 import static net.md_5.bungee.api.chat.ComponentBuilder.FormatRetention.NONE;
 
+/**
+ * Die Haupt- und Main-Klasse des {@link JavaPlugin Plugins}. Hier wird alles initalisiert und gestartet.
+ */
 @NotNull
 public final class JWorldEdit extends JavaPlugin {
 
     //<editor-fold desc="STATIC FIELDS">
+    /** Die Instanz-Variable, womit auf das {@link JWorldEdit Plugin} zugegriffen werden kann. */
     @Getter
     private static JWorldEdit instance;
-
+    /** Der Prefix, der vor jeder Chat-Ausgabe steht. */
     @Getter
     private static String prefix;
     //</editor-fold>
@@ -63,6 +67,9 @@ public final class JWorldEdit extends JavaPlugin {
     }
     //</editor-fold>
 
+    /**
+     * Lädt den Prefix, der vor jeder Chat-Ausgabe stehen soll.
+     */
     private void loadPrefix() {
         final ComponentBuilder builder = new ComponentBuilder();
 
@@ -86,10 +93,10 @@ public final class JWorldEdit extends JavaPlugin {
                 "]",
                 NONE
             ).color(GRAY).bold(true)
-        .append(
-            " ",
-            NONE
-        ).color(GOLD);
+            .append(
+                " ",
+                NONE
+            ).color(GOLD);
 
         final StringBuilder stringBuilder = new StringBuilder();
 
@@ -100,6 +107,12 @@ public final class JWorldEdit extends JavaPlugin {
         prefix = stringBuilder.toString();
     }
 
+    /**
+     * Registriert einen bestimmten Befehl.
+     *
+     * @param command  Der Name des Befehls.
+     * @param executor Der {@link CommandExecutor} des Befehls.
+     */
     private void registerCommand(
         @NotNull final String command,
         @NotNull final CommandExecutor executor

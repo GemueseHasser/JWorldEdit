@@ -32,10 +32,13 @@ public final class JWorldEdit extends JavaPlugin {
 
     @Override
     public void onEnable() {
+        // declare instance
         instance = this;
 
+        // load prefix
         loadPrefix();
 
+        // write enable message
         System.out.println("[JWorldEdit] Das Plugin wurde erfolgreich aktiviert!");
 
         // register commands
@@ -50,6 +53,7 @@ public final class JWorldEdit extends JavaPlugin {
 
     @Override
     public void onDisable() {
+        // write disable message
         System.out.println("[JWorldEdit] Das Plugin wurde deaktiviert!");
     }
 

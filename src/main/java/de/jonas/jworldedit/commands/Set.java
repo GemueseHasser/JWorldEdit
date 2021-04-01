@@ -21,20 +21,21 @@ public class Set implements CommandExecutor {
         @NotNull final String label,
         @NotNull final String[] args
     ) {
-        final CommandUtil util = new CommandUtil(sender, 1, args, "set", PermissionType.SET);
+        // check command
+        final CommandUtil util = new CommandUtil(sender, 1, args, "set <material>", PermissionType.SET);
 
         if (util.check()) {
             return true;
         }
 
+        // declare player
         final Player player = util.getPlayer();
 
+        // declare material
         final String arg = args[0].toUpperCase();
-
-        assert player != null;
-
         final Material material;
 
+        assert player != null;
         try {
             material = Material.valueOf(arg);
         } catch (@NotNull final IllegalArgumentException ignored) {
@@ -42,12 +43,15 @@ public class Set implements CommandExecutor {
             return true;
         }
 
+        // initialize cuboid-selection
         Positions.initializeSelection();
 
+        // declare cuboid-selection
         final CuboidSelection selection = Positions.getSelection();
 
         int count = 0;
 
+        // set materials
         assert selection != null;
         for (final Location location : selection.getAllLocations()) {
             location.getBlock().setType(material);

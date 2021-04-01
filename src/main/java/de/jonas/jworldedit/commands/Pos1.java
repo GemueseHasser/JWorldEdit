@@ -18,14 +18,17 @@ public class Pos1 implements CommandExecutor {
         @NotNull final String label,
         @NotNull final String[] args
     ) {
+        // check command
         CommandUtil util = new CommandUtil(sender, 0, args, "pos1", PermissionType.POS_1);
 
         if (util.check()) {
             return true;
         }
 
+        // declare player
         final Player player = util.getPlayer();
 
+        // set position 1
         assert player != null;
         Positions.setOne(player.getLocation().clone().subtract(1, 1, 1));
         player.sendMessage(JWorldEdit.getPrefix() + "Position 1 gesetzt!");

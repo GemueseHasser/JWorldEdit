@@ -31,12 +31,14 @@ public final class CuboidSelection {
 
         this.allLocations = new ArrayList<>();
 
+        // check if locations are right
         if (!isCorrect()) {
             System.out.println("Incorrect Locations for cuboid-selcetion. Is the min position higher than the max "
                 + "position? Are both positions in the same world?");
             return;
         }
 
+        // declare world
         final World world = min.getWorld();
 
         // declare all locations

@@ -38,18 +38,22 @@ public class CommandUtil {
     }
 
     public boolean check() {
+        // check if player instanceof sender
         if (!(sender instanceof Player)) {
             sender.sendMessage(JWorldEdit.getPrefix() + NO_PERMISSIONS);
             return true;
         }
 
+        // declare player
         this.player = (Player) sender;
 
+        // check if player hast enough permissions
         if (!player.hasPermission(permissionType.getPermission())) {
             player.sendMessage(JWorldEdit.getPrefix() + NO_PLAYER);
             return true;
         }
 
+        // check if command-length is enough
         if (args.length != length) {
             player.sendMessage(JWorldEdit.getPrefix() + "Bitte benutze //" + command);
             return true;

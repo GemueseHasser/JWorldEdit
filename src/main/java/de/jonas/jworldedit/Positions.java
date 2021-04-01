@@ -25,6 +25,7 @@ public final class Positions {
     private static CuboidSelection selection;
 
     public static void initializeSelection() {
+        // check positions
         if (!canInitializeSelection()) {
             System.out.println("One Position was null!");
             return;
@@ -32,6 +33,7 @@ public final class Positions {
         assert one != null;
         assert two != null;
 
+        // filter positions and declare min and max positions
         final double minX;
         final double maxX;
         final double minY;
@@ -46,11 +48,14 @@ public final class Positions {
         minZ = Math.min(one.getZ(), two.getZ());
         maxZ = Math.max(one.getZ(), two.getZ());
 
+        // declare world
         final World world = one.getWorld();
 
+        // declare min and max positions
         final Location min = new Location(world, minX, minY, minZ);
         final Location max = new Location(world, maxX, maxY, maxZ);
 
+        // declare cuboid-selection
         selection = new CuboidSelection(min, max);
     }
 

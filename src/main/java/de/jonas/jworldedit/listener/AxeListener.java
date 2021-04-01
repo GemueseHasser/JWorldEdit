@@ -19,24 +19,30 @@ public class AxeListener implements Listener {
 
     @EventHandler
     public void onClickWithAxe(@NotNull final PlayerInteractEvent e) {
+        // declare item in hand
         final ItemStack hand = e.getPlayer().getInventory().getItemInMainHand();
 
+        // check if player has a wooden axe in hand
         if (!hand.getType().equals(Material.WOODEN_AXE)) {
             return;
         }
 
+        // check if player clicks with main-hand
         if (!Objects.equals(e.getHand(), EquipmentSlot.HAND)) {
             return;
         }
 
+        // cancel event
         e.setCancelled(true);
 
+        // declare clicked block
         final Block block = e.getClickedBlock();
 
         if (block == null) {
             return;
         }
 
+        // declare location
         final Location location = block.getLocation();
 
         if (e.getAction().equals(Action.LEFT_CLICK_BLOCK)) {

@@ -22,9 +22,14 @@ public class AxeListener implements Listener {
             return;
         }
 
+        e.setCancelled(true);
+
         final Block block = e.getClickedBlock();
 
-        assert block != null;
+        if (block == null) {
+            return;
+        }
+
         final Location location = block.getLocation();
 
         if (e.getAction().equals(Action.LEFT_CLICK_BLOCK)) {

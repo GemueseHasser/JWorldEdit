@@ -50,7 +50,7 @@ public final class CuboidSelection {
     }
 
     private boolean isCorrect() {
-        return min.getX() < max.getX() && min.getY() < max.getY() && min.getZ() < max.getZ() && Objects.equals(
+        return min.getX() <= max.getX() && min.getY() <= max.getY() && min.getZ() <= max.getZ() && Objects.equals(
             min.getWorld(),
             max.getWorld()
         );

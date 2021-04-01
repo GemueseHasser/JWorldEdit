@@ -5,6 +5,7 @@ import de.jonas.jworldedit.commands.Pos2;
 import de.jonas.jworldedit.commands.Set;
 import de.jonas.jworldedit.listener.AxeListener;
 import lombok.Getter;
+import net.md_5.bungee.api.chat.BaseComponent;
 import net.md_5.bungee.api.chat.ComponentBuilder;
 import org.bukkit.Bukkit;
 import org.bukkit.command.CommandExecutor;
@@ -74,9 +75,19 @@ public final class JWorldEdit extends JavaPlugin {
             .append(
                 "]",
                 NONE
-            ).color(GRAY).bold(true);
+            ).color(GRAY).bold(true)
+        .append(
+            " ",
+            NONE
+        ).color(GOLD);
 
-        prefix = builder.getCurrentComponent().toString();
+        final StringBuilder stringBuilder = new StringBuilder();
+
+        for (final BaseComponent component : builder.getParts()) {
+            stringBuilder.append(component.toLegacyText());
+        }
+
+        prefix = stringBuilder.toString();
     }
 
     private void registerCommand(

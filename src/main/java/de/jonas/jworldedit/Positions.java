@@ -51,9 +51,6 @@ public final class Positions {
         final Location min = new Location(world, minX, minY, minZ);
         final Location max = new Location(world, maxX, maxY, maxZ);
 
-        System.out.println("MIN: " + min.toString());
-        System.out.println("MAX: " + max.toString());
-
         selection = new CuboidSelection(min, max);
     }
 

@@ -36,6 +36,7 @@ public class AxeListener implements Listener {
             // set position 1
             Positions.setOne(location);
             e.getPlayer().sendMessage(JWorldEdit.getPrefix() + "Position 1 gesetzt!");
+            return;
         }
         if (e.getAction().equals(Action.RIGHT_CLICK_BLOCK)) {
             // set position 2

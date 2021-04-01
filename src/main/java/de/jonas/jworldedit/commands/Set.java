@@ -8,6 +8,7 @@ import de.jonas.jworldedit.Positions;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.command.Command;
+import org.bukkit.command.CommandException;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
@@ -32,12 +33,15 @@ public class Set implements CommandExecutor {
         final String arg = args[0].toUpperCase();
 
         assert player != null;
-        if (Material.valueOf(arg) == Material.AIR) {
-            player.sendMessage(JWorldEdit.getPrefix() + "Bitte gib ein gültiges Material an!");
+
+        final Material material;
+
+        try {
+            material = Material.valueOf(arg);
+        } catch (@NotNull final IllegalArgumentException ignored) {
+            player.sendMessage(JWorldEdit.getPrefix() + "Bitte wähle ein gültiges Material!");
             return true;
         }
-
-        final Material material = Material.valueOf(arg);
 
         Positions.initializeSelection();
 

@@ -15,14 +15,19 @@ public enum PermissionType {
         "set"
     );
 
+    //<editor-fold desc="LOCAL FIELDS">
     @NotNull
     @Getter
     private final String permission;
+    //</editor-fold>
 
+
+    //<editor-fold desc="CONSTRUCTORS">
     PermissionType(
         @NotNull final String permission
     ) {
         this.permission = "jworldedit." + permission;
     }
+    //</editor-fold>
 
 }

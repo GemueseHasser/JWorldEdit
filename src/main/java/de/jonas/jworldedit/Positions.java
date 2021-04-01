@@ -10,6 +10,7 @@ import org.jetbrains.annotations.Nullable;
 @NotNull
 public final class Positions {
 
+    //<editor-fold desc="STATIC FIELDS">
     @Nullable
     @Getter
     @Setter
@@ -23,6 +24,7 @@ public final class Positions {
     @Nullable
     @Getter
     private static CuboidSelection selection;
+    //</editor-fold>
 
     public static void initializeSelection() {
         // check positions

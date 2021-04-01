@@ -13,7 +13,8 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
 
-public class Set implements CommandExecutor {
+public final class Set implements CommandExecutor {
+    //<editor-fold desc="implementation">
     @Override
     public boolean onCommand(
         @NotNull final CommandSender sender,
@@ -61,4 +62,5 @@ public class Set implements CommandExecutor {
         player.sendMessage(JWorldEdit.getPrefix() + "Es wurden alle " + count + " Blöcke gesetzt!");
         return true;
     }
+    //</editor-fold>
 }

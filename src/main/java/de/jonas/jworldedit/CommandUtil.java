@@ -8,11 +8,15 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.annotations.Range;
 
-public class CommandUtil {
+public final class CommandUtil {
 
+    //<editor-fold desc="CONSTANTS">
     private static final String NO_PERMISSIONS = "Dazu hast du keine Rechte!";
     private static final String NO_PLAYER = "Du musst ein Spieler sein!";
+    //</editor-fold>
 
+
+    //<editor-fold desc="LOCAL FIELDS">
     private final CommandSender sender;
     private final int length;
     private final String[] args;
@@ -22,7 +26,10 @@ public class CommandUtil {
     @Nullable
     @Getter
     private Player player;
+    //</editor-fold>
 
+
+    //<editor-fold desc="CONSTRUCTORS">
     public CommandUtil(
         @NotNull final CommandSender sender,
         @Range(from = 0, to = Integer.MAX_VALUE) final int length,
@@ -36,6 +43,8 @@ public class CommandUtil {
         this.command = command;
         this.permissionType = permissionType;
     }
+    //</editor-fold>
+
 
     public boolean check() {
         // check if player instanceof sender

@@ -15,8 +15,9 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.Objects;
 
-public class AxeListener implements Listener {
+public final class AxeListener implements Listener {
 
+    //<editor-fold desc="implementation">
     @EventHandler
     public void onClickWithAxe(@NotNull final PlayerInteractEvent e) {
         // declare item in hand
@@ -55,5 +56,6 @@ public class AxeListener implements Listener {
             e.getPlayer().sendMessage(JWorldEdit.getPrefix() + "Position 2 gesetzt!");
         }
     }
+    //</editor-fold>
 
 }

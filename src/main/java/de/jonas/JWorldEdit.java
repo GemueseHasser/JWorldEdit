@@ -24,12 +24,15 @@ import static net.md_5.bungee.api.chat.ComponentBuilder.FormatRetention.NONE;
 @NotNull
 public final class JWorldEdit extends JavaPlugin {
 
+    //<editor-fold desc="STATIC FIELDS">
     @Getter
     private static JWorldEdit instance;
 
     @Getter
     private static String prefix;
+    //</editor-fold>
 
+    //<editor-fold desc="setup and start">
     @Override
     public void onEnable() {
         // declare instance
@@ -50,12 +53,15 @@ public final class JWorldEdit extends JavaPlugin {
         final PluginManager pm = Bukkit.getPluginManager();
         pm.registerEvents(new AxeListener(), this);
     }
+    //</editor-fold>
 
+    //<editor-fold desc="stop">
     @Override
     public void onDisable() {
         // write disable message
         System.out.println("[JWorldEdit] Das Plugin wurde deaktiviert!");
     }
+    //</editor-fold>
 
     private void loadPrefix() {
         final ComponentBuilder builder = new ComponentBuilder();

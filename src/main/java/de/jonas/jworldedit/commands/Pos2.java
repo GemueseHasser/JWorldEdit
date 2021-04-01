@@ -10,7 +10,8 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
 
-public class Pos2 implements CommandExecutor {
+public final class Pos2 implements CommandExecutor {
+    //<editor-fold desc="implementation">
     @Override
     public boolean onCommand(
         @NotNull final CommandSender sender,
@@ -34,4 +35,5 @@ public class Pos2 implements CommandExecutor {
         player.sendMessage(JWorldEdit.getPrefix() + "Position 2 gesetzt!");
         return true;
     }
+    //</editor-fold>
 }

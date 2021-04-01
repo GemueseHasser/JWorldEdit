@@ -12,6 +12,7 @@ import java.util.Objects;
 @NotNull
 public final class CuboidSelection {
 
+    //<editor-fold desc="LOCAL FIELDS">
     @NotNull
     private final Location min;
 
@@ -21,7 +22,10 @@ public final class CuboidSelection {
     @NotNull
     @Getter
     private final List<Location> allLocations;
+    //</editor-fold>
 
+
+    //<editor-fold desc="CONSTRUCTORS">
     public CuboidSelection(
         @NotNull final Location min,
         @NotNull final Location max
@@ -50,6 +54,8 @@ public final class CuboidSelection {
             }
         }
     }
+    //</editor-fold>
+
 
     private boolean isCorrect() {
         return min.getX() <= max.getX() && min.getY() <= max.getY() && min.getZ() <= max.getZ() && Objects.equals(

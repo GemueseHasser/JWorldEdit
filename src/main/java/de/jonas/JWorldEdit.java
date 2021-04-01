@@ -11,7 +11,8 @@ import static net.md_5.bungee.api.ChatColor.RED;
 import static net.md_5.bungee.api.ChatColor.WHITE;
 import static net.md_5.bungee.api.chat.ComponentBuilder.FormatRetention.NONE;
 
-public class JWorldEdit extends JavaPlugin {
+@NotNull
+public final class JWorldEdit extends JavaPlugin {
 
     @Getter
     private static JWorldEdit instance;

@@ -36,7 +36,7 @@ public final class JWorldEdit extends JavaPlugin {
 
         loadPrefix();
 
-        System.out.println(prefix + "Das Plugin wurde erfolgreich aktiviert!");
+        System.out.println("[JWorldEdit] Das Plugin wurde erfolgreich aktiviert!");
 
         // register commands
         registerCommand("/pos1", new Pos1());
@@ -50,7 +50,7 @@ public final class JWorldEdit extends JavaPlugin {
 
     @Override
     public void onDisable() {
-        System.out.println(prefix + "Das Plugin wurde deaktiviert!");
+        System.out.println("[JWorldEdit] Das Plugin wurde deaktiviert!");
     }
 
     private void loadPrefix() {

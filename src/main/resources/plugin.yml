@@ -11,3 +11,11 @@ softdepend: []
 api-version: '1.13'
 loadbefore: []
 prefix: '${project.name}'
+
+commands:
+  /pos1:
+    description: 'Setzt die erste Position, um einen Bereich zu markieren!'
+    usage: '</command>'
+  /pos2:
+    description: 'Setzt die zweite Position, um einen Bereich zu markieren!'
+    usage: '</command>'

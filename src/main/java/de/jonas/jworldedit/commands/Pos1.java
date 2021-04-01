@@ -2,6 +2,7 @@ package de.jonas.jworldedit.commands;
 
 import de.jonas.JWorldEdit;
 import de.jonas.jworldedit.CommandUtil;
+import de.jonas.jworldedit.PermissionType;
 import de.jonas.jworldedit.Positions;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -17,7 +18,7 @@ public class Pos1 implements CommandExecutor {
         @NotNull final String label,
         @NotNull final String[] args
     ) {
-        CommandUtil util = new CommandUtil(sender, 0, args, "pos1");
+        CommandUtil util = new CommandUtil(sender, 0, args, "pos1", PermissionType.POS_1);
 
         if (util.check()) {
             return true;

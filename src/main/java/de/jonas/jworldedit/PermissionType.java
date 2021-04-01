@@ -10,6 +10,9 @@ public enum PermissionType {
     ),
     POS_2(
         "pos2"
+    ),
+    SET(
+        "set"
     );
 
     @NotNull
@@ -19,7 +22,7 @@ public enum PermissionType {
     PermissionType(
         @NotNull final String permission
     ) {
-        this.permission = "jworldedit" + permission;
+        this.permission = "jworldedit." + permission;
     }
 
 }

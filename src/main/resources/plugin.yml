@@ -19,3 +19,6 @@ commands:
   /pos2:
     description: 'Setzt die zweite Position, um einen Bereich zu markieren!'
     usage: '</command>'
+  /set:
+    description: 'Setzt alle markierten Blöcke neu!'
+    usage: '</command> <material>'

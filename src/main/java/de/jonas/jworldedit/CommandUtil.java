@@ -17,6 +17,7 @@ public class CommandUtil {
     private final int length;
     private final String[] args;
     private final String command;
+    private final PermissionType permissionType;
 
     @Nullable
     @Getter
@@ -26,12 +27,14 @@ public class CommandUtil {
         @NotNull final CommandSender sender,
         @Range(from = 0, to = Integer.MAX_VALUE) final int length,
         @NotNull final String[] args,
-        @NotNull final String command
+        @NotNull final String command,
+        @NotNull final PermissionType permissionType
     ) {
         this.sender = sender;
         this.length = length;
         this.args = args;
         this.command = command;
+        this.permissionType = permissionType;
     }
 
     public boolean check() {
@@ -42,7 +45,7 @@ public class CommandUtil {
 
         this.player = (Player) sender;
 
-        if (!player.hasPermission(PermissionType.POS_2.getPermission())) {
+        if (!player.hasPermission(permissionType.getPermission())) {
             player.sendMessage(JWorldEdit.getPrefix() + NO_PLAYER);
             return true;
         }

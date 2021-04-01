@@ -3,6 +3,7 @@ package de.jonas.jworldedit.commands;
 import de.jonas.JWorldEdit;
 import de.jonas.jworldedit.CommandUtil;
 import de.jonas.jworldedit.CuboidSelection;
+import de.jonas.jworldedit.PermissionType;
 import de.jonas.jworldedit.Positions;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -20,7 +21,7 @@ public class Set implements CommandExecutor {
         @NotNull final String label,
         @NotNull final String[] args
     ) {
-        final CommandUtil util = new CommandUtil(sender, 1, args, "set");
+        final CommandUtil util = new CommandUtil(sender, 1, args, "set", PermissionType.SET);
 
         if (util.check()) {
             return true;

@@ -16,7 +16,6 @@ import org.jetbrains.annotations.NotNull;
 import java.util.Objects;
 
 public final class AxeListener implements Listener {
-
     //<editor-fold desc="implementation">
     @EventHandler
     public void onClickWithAxe(@NotNull final PlayerInteractEvent e) {
@@ -57,5 +56,4 @@ public final class AxeListener implements Listener {
         }
     }
     //</editor-fold>
-
 }

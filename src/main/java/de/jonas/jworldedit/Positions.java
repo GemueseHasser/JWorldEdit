@@ -21,33 +21,31 @@ public final class Positions {
     @Nullable
     @Getter
     @Setter
-    private static Location one;
+    private Location one;
     /** Die zweite {@link Location} der zwei markierten {@link Location Locations}. */
     @Nullable
     @Getter
     @Setter
-    private static Location two;
+    private Location two;
     /**
      * Die {@link CuboidSelection}, die mithilfe der {@code #initializeSelection initializeSelection()} immer wieder neu
      * deklariert werden kann, da sich die {@link Location Locations} auch immer wieder ändern.*
      */
     @Nullable
     @Getter
-    private static CuboidSelection selection;
+    private CuboidSelection selection;
     //</editor-fold>
 
     /**
      * Initialisiert die {@link CuboidSelection} neu. Es werden aus den beiden angegebenen {@link Location Locations}
      * eine minimale und eine maximale {@link Location} erzeugt, woraus dann die {@link CuboidSelection} erzeugt wird.
      */
-    public static void initializeSelection() {
+    public void initializeSelection() {
         // check positions
         if (!canInitializeSelection()) {
             System.out.println("One Position was null!");
             return;
         }
-        assert one != null;
-        assert two != null;
 
         // filter positions and declare min and max positions
         final double minX;
@@ -81,7 +79,7 @@ public final class Positions {
      *
      * @return Wenn keine der beiden {@link Location Locations} null ist {@code true}, ansonsten {@code false}.
      */
-    private static boolean canInitializeSelection() {
+    private boolean canInitializeSelection() {
         return one != null && two != null;
     }
 

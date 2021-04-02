@@ -49,10 +49,11 @@ public final class Set implements CommandExecutor {
         }
 
         // initialize cuboid-selection
-        Positions.initializeSelection();
+        final Positions positions = JWorldEdit.POSITIONS.get(player.getUniqueId());
+        positions.initializeSelection();
 
         // declare cuboid-selection
-        final CuboidSelection selection = Positions.getSelection();
+        final CuboidSelection selection = positions.getSelection();
 
         int count = 0;
 

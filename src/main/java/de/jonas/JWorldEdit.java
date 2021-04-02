@@ -1,9 +1,11 @@
 package de.jonas;
 
+import de.jonas.jworldedit.Positions;
 import de.jonas.jworldedit.commands.Pos1;
 import de.jonas.jworldedit.commands.Pos2;
 import de.jonas.jworldedit.commands.Set;
 import de.jonas.jworldedit.listener.AxeListener;
+import de.jonas.jworldedit.listener.JoinListener;
 import lombok.Getter;
 import net.md_5.bungee.api.chat.BaseComponent;
 import net.md_5.bungee.api.chat.ComponentBuilder;
@@ -13,7 +15,9 @@ import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.HashMap;
 import java.util.Objects;
+import java.util.UUID;
 
 import static net.md_5.bungee.api.ChatColor.GOLD;
 import static net.md_5.bungee.api.ChatColor.GRAY;
@@ -26,6 +30,12 @@ import static net.md_5.bungee.api.chat.ComponentBuilder.FormatRetention.NONE;
  */
 @NotNull
 public final class JWorldEdit extends JavaPlugin {
+
+    //<editor-fold desc="CONSTANTS">
+    /** Eine {@link HashMap}, die für jeden Spieler der online ist, eine {@link Positions Positions-Instanz} enthält. */
+    public static final HashMap<UUID, Positions> POSITIONS = new HashMap<>();
+    //</editor-fold>
+
 
     //<editor-fold desc="STATIC FIELDS">
     /** Die Instanz-Variable, womit auf das {@link JWorldEdit Plugin} zugegriffen werden kann. */
@@ -56,6 +66,7 @@ public final class JWorldEdit extends JavaPlugin {
         // register listener
         final PluginManager pm = Bukkit.getPluginManager();
         pm.registerEvents(new AxeListener(), this);
+        pm.registerEvents(new JoinListener(), this);
     }
     //</editor-fold>
 

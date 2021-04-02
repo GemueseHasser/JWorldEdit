@@ -50,11 +50,11 @@ public final class AxeListener implements Listener {
 
         if (e.getAction().equals(Action.LEFT_CLICK_BLOCK)) {
             // set position 1
-            Positions.setOne(location);
+            JWorldEdit.POSITIONS.get(e.getPlayer().getUniqueId()).setOne(location);
             e.getPlayer().sendMessage(JWorldEdit.getPrefix() + "Position 1 gesetzt!");
         } else if (e.getAction().equals(Action.RIGHT_CLICK_BLOCK)) {
             // set position 2
-            Positions.setTwo(location);
+            JWorldEdit.POSITIONS.get(e.getPlayer().getUniqueId()).setTwo(location);
             e.getPlayer().sendMessage(JWorldEdit.getPrefix() + "Position 2 gesetzt!");
         }
     }

@@ -34,7 +34,7 @@ public final class Pos2 implements CommandExecutor {
 
         // set position 2
         assert player != null;
-        Positions.setTwo(player.getLocation().clone().subtract(1, 1, 1));
+        JWorldEdit.POSITIONS.get(player.getUniqueId()).setTwo(player.getLocation().clone().subtract(1, 1, 1));
         player.sendMessage(JWorldEdit.getPrefix() + "Position 2 gesetzt!");
         return true;
     }

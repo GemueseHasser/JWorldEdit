@@ -18,7 +18,7 @@ import org.jetbrains.annotations.Range;
 public final class CommandUtil {
 
     //<editor-fold desc="CONSTANTS">
-    /** Die Nachricht, die gesendet wird, wenn ein falsches bzw. nicht existierendes {@link Material} angegeben wurde. */
+    /** Die Nachricht, die gesendet wird, wenn ein nicht existierendes {@link Material} angegeben wurde. */
     @NotNull
     public static final String WRONG_MATERIAL_MESSAGE = "Bitte wähle ein gültiges Material!";
     /**
@@ -104,6 +104,9 @@ public final class CommandUtil {
     /**
      * Prüft den {@link CommandSender} auf eine {@link Player Spieler-Instanz}, die Rechte des {@link Player Spielers },
      * zufalls der {@link CommandSender} ein {@link Player Spieler} ist und die Argumenten-Länge.
+     *
+     * @return Wenn der Befehls-Sender alle nötigen Anforderungen erfüllt, um diesen Befehl auszuführen, {@code true} ,
+     *     ansonsten {@code false}.
      */
     public boolean check() {
         // check if player instanceof sender

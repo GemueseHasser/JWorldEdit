@@ -17,6 +17,13 @@ import static de.jonas.jworldedit.CommandUtil.NULL_POSITION;
  */
 @NotNull
 public final class Expand implements CommandExecutor {
+
+    //<editor-fold desc="CONSTANTS">
+    /** Die Höhe (auf der Y-Achse), wohin der Bereich erweitert wird. */
+    private static final int EXPAND_HEIGHT = 255;
+    //</editor-fold>
+
+
     //<editor-fold desc="implementation">
     @Override
     public boolean onCommand(
@@ -59,7 +66,7 @@ public final class Expand implements CommandExecutor {
 
         // expand vert
         positions.getOne().setY(0);
-        positions.getTwo().setY(255);
+        positions.getTwo().setY(EXPAND_HEIGHT);
 
         player.sendMessage(JWorldEdit.getPrefix() + "Der Bereich wurde erweitert!");
         return true;

@@ -52,7 +52,7 @@ public enum PermissionType {
     UNDO(
         "undo"
     ),
-    /** Der {@link PermissionType} für den {@link Redo Redo-Command} */
+    /** Der {@link PermissionType} für den {@link Redo Redo-Command}. */
     @NotNull
     REDO(
         "redo"

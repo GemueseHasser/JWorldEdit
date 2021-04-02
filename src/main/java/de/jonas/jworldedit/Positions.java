@@ -27,10 +27,12 @@ public final class Positions {
     //<editor-fold desc="STATIC FIELDS">
     /** Die letzten Aktionen. */
     @NotNull
-    public final LinkedList<CuboidSelection> oldSelections = new LinkedList<>();
+    @Getter
+    private final LinkedList<CuboidSelection> oldSelections = new LinkedList<>();
     /** Die neueren Aktionen, die bereits rückgängig gemacht wurden. */
     @NotNull
-    public final LinkedList<CuboidSelection> newSelections = new LinkedList<>();
+    @Getter
+    private final LinkedList<CuboidSelection> newSelections = new LinkedList<>();
     /** Die erste {@link Location} der zwei markierten {@link Location Locations}. */
     @Nullable
     @Getter
@@ -43,7 +45,7 @@ public final class Positions {
     private Location two;
     /**
      * Die {@link CuboidSelection}, die mithilfe der {@code #initializeSelection initializeSelection()} immer wieder neu
-     * deklariert werden kann, da sich die {@link Location Locations} auch immer wieder ändern.*
+     * deklariert werden kann, da sich die {@link Location Locations} auch immer wieder ändern.
      */
     @Nullable
     @Getter

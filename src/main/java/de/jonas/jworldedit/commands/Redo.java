@@ -43,13 +43,13 @@ public final class Redo implements CommandExecutor {
         assert player != null;
         final Positions positions = JWorldEdit.POSITIONS.get(player.getUniqueId());
 
-        if (positions.newSelections.isEmpty()) {
+        if (positions.getNewSelections().isEmpty()) {
             player.sendMessage(JWorldEdit.getPrefix() + "Es gibt nichts, was wiederhergestellt werden kann!");
             return true;
         }
 
         // declare latest cuboid selection (1 before)
-        final CuboidSelection latest = positions.newSelections.getLast();
+        final CuboidSelection latest = positions.getNewSelections().getLast();
         positions.initializeSelection();
         final CuboidSelection newest = positions.getSelection();
 
@@ -61,7 +61,7 @@ public final class Redo implements CommandExecutor {
         // remove restored selection and add to new selections
         assert newest != null;
         positions.addOldSelection(newest);
-        positions.newSelections.removeLast();
+        positions.getNewSelections().removeLast();
 
         player.sendMessage(JWorldEdit.getPrefix() + "Die letzte Aktion wurde wiederhergestellt!");
         return true;

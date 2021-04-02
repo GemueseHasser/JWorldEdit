@@ -2,7 +2,6 @@ package de.jonas.jworldedit.listener;
 
 import de.jonas.JWorldEdit;
 import de.jonas.jworldedit.PermissionType;
-import de.jonas.jworldedit.Positions;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.block.Block;

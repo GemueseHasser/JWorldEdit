@@ -43,13 +43,13 @@ public final class Undo implements CommandExecutor {
         assert player != null;
         final Positions positions = JWorldEdit.POSITIONS.get(player.getUniqueId());
 
-        if (positions.oldSelections.isEmpty()) {
+        if (positions.getOldSelections().isEmpty()) {
             player.sendMessage(JWorldEdit.getPrefix() + "Es gibt nichts, was rückgängig gemacht werden kann!");
             return true;
         }
 
         // declare latest cuboid selection (1 before)
-        final CuboidSelection latest = positions.oldSelections.getLast();
+        final CuboidSelection latest = positions.getOldSelections().getLast();
         positions.initializeSelection();
         final CuboidSelection newest = positions.getSelection();
 
@@ -61,7 +61,7 @@ public final class Undo implements CommandExecutor {
         // remove restored selection and add to new selections
         assert newest != null;
         positions.addNewSelection(newest);
-        positions.oldSelections.removeLast();
+        positions.getOldSelections().removeLast();
 
         player.sendMessage(JWorldEdit.getPrefix() + "Die letzte Aktion wurde rückgängig gemacht!");
         return true;

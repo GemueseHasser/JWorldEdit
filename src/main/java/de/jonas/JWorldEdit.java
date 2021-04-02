@@ -34,7 +34,7 @@ import static net.md_5.bungee.api.chat.ComponentBuilder.FormatRetention.NONE;
  * Die Haupt- und Main-Klasse des {@link JavaPlugin Plugins}. Hier wird alles initalisiert und gestartet.
  */
 @NotNull
-public final class JWorldEdit extends JavaPlugin {
+public class JWorldEdit extends JavaPlugin {
 
     //<editor-fold desc="CONSTANTS">
     /** Eine {@link HashMap}, die für jeden Spieler der online ist, eine {@link Positions Positions-Instanz} enthält. */

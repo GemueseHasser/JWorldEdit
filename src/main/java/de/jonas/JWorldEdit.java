@@ -4,6 +4,7 @@ import de.jonas.jworldedit.Positions;
 import de.jonas.jworldedit.commands.Expand;
 import de.jonas.jworldedit.commands.Pos1;
 import de.jonas.jworldedit.commands.Pos2;
+import de.jonas.jworldedit.commands.Redo;
 import de.jonas.jworldedit.commands.Replace;
 import de.jonas.jworldedit.commands.Set;
 import de.jonas.jworldedit.commands.Undo;
@@ -72,6 +73,7 @@ public class JWorldEdit extends JavaPlugin {
         registerCommand("/replace", new Replace());
         registerCommand("/expand", new Expand());
         registerCommand("/undo", new Undo());
+        registerCommand("/redo", new Redo());
 
         // register listener
         final PluginManager pm = Bukkit.getPluginManager();

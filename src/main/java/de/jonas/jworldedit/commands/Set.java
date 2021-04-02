@@ -64,7 +64,7 @@ public final class Set implements CommandExecutor {
         final CuboidSelection selection = positions.getSelection();
 
         assert selection != null;
-        positions.addSelection(selection);
+        positions.addOldSelection(selection);
 
         int count = 0;
 

@@ -3,6 +3,7 @@ package de.jonas.jworldedit;
 import de.jonas.jworldedit.commands.Expand;
 import de.jonas.jworldedit.commands.Pos1;
 import de.jonas.jworldedit.commands.Pos2;
+import de.jonas.jworldedit.commands.Redo;
 import de.jonas.jworldedit.commands.Replace;
 import de.jonas.jworldedit.commands.Set;
 import de.jonas.jworldedit.commands.Undo;
@@ -50,6 +51,11 @@ public enum PermissionType {
     @NotNull
     UNDO(
         "undo"
+    ),
+    /** Der {@link PermissionType} für den {@link Redo Redo-Command} */
+    @NotNull
+    REDO(
+        "redo"
     );
 
     //<editor-fold desc="LOCAL FIELDS">

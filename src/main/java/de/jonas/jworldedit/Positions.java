@@ -20,14 +20,17 @@ public final class Positions {
 
     //<editor-fold desc="CONSTANTS">
     /** Die Anzahl an Aktionen, die rückgängig gemacht werden können. */
-    private static final int MAX_UNDO = 10;
+    private static final int MAX_UNDO_REDO = 10;
     //</editor-fold>
 
 
     //<editor-fold desc="STATIC FIELDS">
-    /** Die 10 letzten Aktionen. */
+    /** Die letzten Aktionen. */
     @NotNull
     public final LinkedList<CuboidSelection> oldSelections = new LinkedList<>();
+    /** Die neueren Aktionen, die bereits rückgängig gemacht wurden. */
+    @NotNull
+    public final LinkedList<CuboidSelection> newSelections = new LinkedList<>();
     /** Die erste {@link Location} der zwei markierten {@link Location Locations}. */
     @Nullable
     @Getter
@@ -99,11 +102,23 @@ public final class Positions {
      *
      * @param cuboidSelection Die {@link CuboidSelection}, die hinzugefügt wird.
      */
-    public void addSelection(@NotNull final CuboidSelection cuboidSelection) {
-        if (oldSelections.size() >= MAX_UNDO) {
+    public void addOldSelection(@NotNull final CuboidSelection cuboidSelection) {
+        if (oldSelections.size() >= MAX_UNDO_REDO) {
             oldSelections.removeFirst();
         }
         oldSelections.addLast(cuboidSelection);
+    }
+
+    /**
+     * Fügt eine bestimmte {@link CuboidSelection} zu der {@link LinkedList} der neuen Aktionen hinzu.
+     *
+     * @param cuboidSelection Die {@link CuboidSelection}, die hinzugefügt wird.
+     */
+    public void addNewSelection(@NotNull final CuboidSelection cuboidSelection) {
+        if (newSelections.size() >= MAX_UNDO_REDO) {
+            newSelections.removeFirst();
+        }
+        newSelections.addLast(cuboidSelection);
     }
 
 }

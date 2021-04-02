@@ -53,7 +53,7 @@ public final class Replace implements CommandExecutor {
         final CuboidSelection selection = positions.getSelection();
 
         assert selection != null;
-        positions.addSelection(selection);
+        positions.addOldSelection(selection);
 
         if (materialOne == null) {
             player.sendMessage(JWorldEdit.getPrefix() + WRONG_MATERIAL_MESSAGE);

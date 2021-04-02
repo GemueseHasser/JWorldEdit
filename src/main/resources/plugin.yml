@@ -32,3 +32,6 @@ commands:
   /undo:
     description: 'Macht eine zuvor getätigte Aktion rückgängig!'
     usage: '</command>'
+  /redo:
+    description: 'Stellt eine zuvor rückgängig gemachte Aktion wieder her!'
+    usage: '</command>'

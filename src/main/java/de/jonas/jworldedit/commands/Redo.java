@@ -13,9 +13,9 @@ import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
 
 /**
- * Es wird der Befehl, mit dem sich vorgenommene Änderungen rückgängig machen lassen, implementiert.
+ * Es wird der Befehl, mit dem sich rückgängig gemachte Änderungen wiederherstellen lassen, implementiert.
  */
-public final class Undo implements CommandExecutor {
+public final class Redo implements CommandExecutor {
     //<editor-fold desc="implementation">
     @Override
     public boolean onCommand(
@@ -30,26 +30,26 @@ public final class Undo implements CommandExecutor {
             0,
             0,
             args,
-            "undo",
-            PermissionType.UNDO
+            "redo",
+            PermissionType.REDO
         );
 
         if (util.check()) {
             return true;
         }
 
-        // declare player and current positions
+        // declare player
         final Player player = util.getPlayer();
         assert player != null;
         final Positions positions = JWorldEdit.POSITIONS.get(player.getUniqueId());
 
-        if (positions.oldSelections.isEmpty()) {
-            player.sendMessage(JWorldEdit.getPrefix() + "Es gibt nichts, was rückgängig gemacht werden kann!");
+        if (positions.newSelections.isEmpty()) {
+            player.sendMessage(JWorldEdit.getPrefix() + "Es gibt nichts, was wiederhergestellt werden kann!");
             return true;
         }
 
         // declare latest cuboid selection (1 before)
-        final CuboidSelection latest = positions.oldSelections.getLast();
+        final CuboidSelection latest = positions.newSelections.getLast();
         positions.initializeSelection();
         final CuboidSelection newest = positions.getSelection();
 
@@ -60,10 +60,10 @@ public final class Undo implements CommandExecutor {
 
         // remove restored selection and add to new selections
         assert newest != null;
-        positions.addNewSelection(newest);
-        positions.oldSelections.removeLast();
+        positions.addOldSelection(newest);
+        positions.newSelections.removeLast();
 
-        player.sendMessage(JWorldEdit.getPrefix() + "Die letzte Aktion wurde rückgängig gemacht!");
+        player.sendMessage(JWorldEdit.getPrefix() + "Die letzte Aktion wurde wiederhergestellt!");
         return true;
     }
     //</editor-fold>

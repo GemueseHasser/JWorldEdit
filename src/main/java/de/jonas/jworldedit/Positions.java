@@ -104,7 +104,6 @@ public final class Positions {
             oldSelections.removeFirst();
         }
         oldSelections.addLast(cuboidSelection);
-        System.out.println(oldSelections.size());
     }
 
 }

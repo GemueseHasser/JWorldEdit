@@ -27,7 +27,7 @@ public final class Set implements CommandExecutor {
         @NotNull final String[] args
     ) {
         // check command
-        final CommandUtil util = new CommandUtil(sender, 1, args, "set <material>", PermissionType.SET);
+        final CommandUtil util = new CommandUtil(sender, 1, 1, args, "set <material>", PermissionType.SET);
 
         if (util.check()) {
             return true;
@@ -37,13 +37,10 @@ public final class Set implements CommandExecutor {
         final Player player = util.getPlayer();
 
         // declare material
-        final String arg = args[0].toUpperCase();
-        final Material material;
+        final Material material = JWorldEdit.getInstance().getMaterial(args[0]);
 
         assert player != null;
-        try {
-            material = Material.valueOf(arg);
-        } catch (@NotNull final IllegalArgumentException ignored) {
+        if (material == null) {
             player.sendMessage(JWorldEdit.getPrefix() + "Bitte wähle ein gültiges Material!");
             return true;
         }

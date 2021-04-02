@@ -27,6 +27,9 @@ public enum PermissionType {
     /** Der {@link PermissionType} für den {@link Set Set-Command}. */
     SET(
         "set"
+    ),
+    REPLACE(
+        "replace"
     );
 
     //<editor-fold desc="LOCAL FIELDS">

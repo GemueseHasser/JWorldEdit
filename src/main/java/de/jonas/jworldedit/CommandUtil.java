@@ -26,8 +26,10 @@ public final class CommandUtil {
     //<editor-fold desc="LOCAL FIELDS">
     /** Der {@link CommandSender}, der den Befehl absendet. */
     private final CommandSender sender;
-    /** Die exakte Befehl-Länge, die der Command haben muss. */
-    private final int length;
+    /** Die minimale Länge des Befehls. */
+    private final int minLength;
+    /** Die maximale Länge des Befehls. */
+    private final int maxLength;
     /** Die neben dem eigentlichen Befehl angegebenen Argumente. */
     private final String[] args;
     /** Der Befehl, der eingegeben werden soll. */
@@ -54,7 +56,8 @@ public final class CommandUtil {
      * Spieler} ist) und das Überprüfen der Befehls-Länge deutlich vereinfachen.
      *
      * @param sender         Der {@link CommandSender}, der den Befehl abschickt.
-     * @param length         Die exakte Argumenten-Länge, die der Befehl haben muss.
+     * @param minLength      Die minimale Argumenten-Länge des Befehls.
+     * @param maxLength      Die maximale Argumenten-Länge des Befehls.
      * @param args           Die neben dem eigentlichen Befehl angegebenen Argumente.
      * @param command        Der Name des eigentlichen Befehls.
      * @param permissionType Der {@link PermissionType}, den der jeweilige {@link Player Spieler} benötigt, um diesen
@@ -62,13 +65,15 @@ public final class CommandUtil {
      */
     public CommandUtil(
         @NotNull final CommandSender sender,
-        @Range(from = 0, to = Integer.MAX_VALUE) final int length,
+        @Range(from = 0, to = Integer.MAX_VALUE) final int minLength,
+        @Range(from = 0, to = Integer.MAX_VALUE) final int maxLength,
         @NotNull final String[] args,
         @NotNull final String command,
         @NotNull final PermissionType permissionType
     ) {
         this.sender = sender;
-        this.length = length;
+        this.minLength = minLength;
+        this.maxLength = maxLength;
         this.args = args;
         this.command = command;
         this.permissionType = permissionType;
@@ -97,7 +102,7 @@ public final class CommandUtil {
         }
 
         // check if command-length is enough
-        if (args.length != length) {
+        if (!(args.length >= minLength && args.length <= maxLength)) {
             player.sendMessage(JWorldEdit.getPrefix() + "Bitte benutze //" + command);
             return true;
         }

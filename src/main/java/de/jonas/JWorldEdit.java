@@ -11,6 +11,7 @@ import lombok.Getter;
 import net.md_5.bungee.api.chat.BaseComponent;
 import net.md_5.bungee.api.chat.ComponentBuilder;
 import org.bukkit.Bukkit;
+import org.bukkit.Material;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.PluginManager;
@@ -85,6 +86,27 @@ public final class JWorldEdit extends JavaPlugin {
         System.out.println("[JWorldEdit] Das Plugin wurde deaktiviert!");
     }
     //</editor-fold>
+
+    /**
+     * Gibt ein {@link Material} anhand seines Namens zurück. Zufalls der angegebene Name bei keinem {@link Material}
+     * existiert, wird einfach null zurück-gegeben.
+     *
+     * @param name Der Name, des {@link Material}.
+     *
+     * @return Das {@link Material}, mit dem bestimmten Namen. Zufalls der Name bei keinem {@link Material} existiert,
+     *     wird null zurück-gegeben.
+     */
+    public Material getMaterial(@NotNull final String name) {
+        final String upper = name.toUpperCase();
+        final Material material;
+
+        try {
+            material = Material.valueOf(upper);
+        } catch (@NotNull final IllegalArgumentException ignored) {
+            return null;
+        }
+        return material;
+    }
 
     /**
      * Lädt den Prefix, der vor jeder Chat-Ausgabe stehen soll.

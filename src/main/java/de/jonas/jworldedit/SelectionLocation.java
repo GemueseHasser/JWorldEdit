@@ -10,7 +10,7 @@ import org.jetbrains.annotations.NotNull;
  * Eine {@link SelectionLocation} besteht aus einer {@link Location} und einem {@link Material}.
  */
 @RequiredArgsConstructor
-public class SelectionLocation {
+public final class SelectionLocation {
     //<editor-fold desc="LOCAL FIELDS">
     /** Die {@link Location} der {@link SelectionLocation}. */
     @NotNull

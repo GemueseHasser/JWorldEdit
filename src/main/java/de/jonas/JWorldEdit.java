@@ -1,6 +1,7 @@
 package de.jonas;
 
 import de.jonas.jworldedit.Positions;
+import de.jonas.jworldedit.commands.Expand;
 import de.jonas.jworldedit.commands.Pos1;
 import de.jonas.jworldedit.commands.Pos2;
 import de.jonas.jworldedit.commands.Replace;
@@ -66,6 +67,7 @@ public final class JWorldEdit extends JavaPlugin {
         registerCommand("/pos2", new Pos2());
         registerCommand("/set", new Set());
         registerCommand("/replace", new Replace());
+        registerCommand("/expand", new Expand());
 
         // register listener
         final PluginManager pm = Bukkit.getPluginManager();

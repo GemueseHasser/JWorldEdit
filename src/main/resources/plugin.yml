@@ -24,5 +24,8 @@ commands:
     usage: '</command> <material>'
   /replace:
     description: 'Ersetzt einen bestimmten Block im markierten Bereich durch einen anderen, oder ersetzt alle im
-    markierten Bereich gesetzten Blöcke zu einem neuen Block'
+    markierten Bereich gesetzten Blöcke zu einem neuen Block!'
     usage: '</command> <oldBlock> <newBlock> | </command> <newBlock>'
+  /expand:
+    description: 'Erweitert einen zuvor markierten Bereich!'
+    usage: '</command> <vert>'

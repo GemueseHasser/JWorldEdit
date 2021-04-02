@@ -30,6 +30,9 @@ public enum PermissionType {
     ),
     REPLACE(
         "replace"
+    ),
+    EXPAND(
+        "expand"
     );
 
     //<editor-fold desc="LOCAL FIELDS">

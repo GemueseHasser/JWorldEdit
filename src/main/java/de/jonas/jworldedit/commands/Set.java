@@ -13,6 +13,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
 
+import static de.jonas.jworldedit.CommandUtil.NULL_POSITION;
 import static de.jonas.jworldedit.CommandUtil.WRONG_MATERIAL_MESSAGE;
 
 /**
@@ -49,6 +50,13 @@ public final class Set implements CommandExecutor {
 
         // initialize cuboid-selection
         final Positions positions = JWorldEdit.POSITIONS.get(player.getUniqueId());
+
+        // check if positions are not null
+        if (positions.getOne() == null || positions.getTwo() == null) {
+            player.sendMessage(JWorldEdit.getPrefix() + NULL_POSITION);
+            return true;
+        }
+
         positions.initializeSelection();
 
         // declare cuboid-selection

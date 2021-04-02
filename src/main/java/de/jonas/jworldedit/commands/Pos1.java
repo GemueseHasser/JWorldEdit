@@ -23,7 +23,14 @@ public final class Pos1 implements CommandExecutor {
         @NotNull final String[] args
     ) {
         // check command
-        CommandUtil util = new CommandUtil(sender, 0, 0, args, "pos1", PermissionType.POS_1);
+        CommandUtil util = new CommandUtil(
+            sender,
+            0,
+            0,
+            args,
+            "pos1",
+            PermissionType.POS_1
+        );
 
         if (util.check()) {
             return true;

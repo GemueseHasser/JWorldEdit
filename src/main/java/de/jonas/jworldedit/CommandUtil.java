@@ -19,6 +19,11 @@ public final class CommandUtil {
     //<editor-fold desc="CONSTANTS">
     /** Die Nachricht, die gesendet wird, wenn ein falsches bzw. nicht existierendes {@link Material} angegeben wurde. */
     public static final String WRONG_MATERIAL_MESSAGE = "Bitte wähle ein gültiges Material!";
+    /**
+     * Die Nachricht, die gesendet wird, wenn der ein {@link Player} versucht einen Bereich zu editieren ohne die {@link
+     * Positions} festegelegt zu haben.
+     */
+    public static final String NULL_POSITION = "Bitte lege zuerst zwei Positionen fest!";
     /** Die Nachricht, die gesendet wird, wenn ein {@link Player} nicht die nötigen Rechte für einen Befehl hat. */
     private static final String NO_PERMISSIONS = "Dazu hast du keine Rechte!";
     /** Die Nachricht, die gesendet wird, wenn der {@link CommandSender} kein {@link Player} ist. */
@@ -106,10 +111,20 @@ public final class CommandUtil {
 
         // check if command-length is enough
         if (!(args.length >= minLength && args.length <= maxLength)) {
-            player.sendMessage(JWorldEdit.getPrefix() + "Bitte benutze //" + command);
+            player.sendMessage(getWrongCommand());
             return true;
         }
         return false;
+    }
+
+    /**
+     * Die Nachricht, die einem {@link Player Spieler} ausgegeben wird, wenn er die Argumente des Befehls falsch
+     * angegeben hat.
+     *
+     * @return Die Nachricht, wie der Befehl richtig einzugeben ist.
+     */
+    public String getWrongCommand() {
+        return JWorldEdit.getPrefix() + "Bitte benutze //" + command;
     }
 
 }

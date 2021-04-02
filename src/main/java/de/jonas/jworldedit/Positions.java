@@ -70,7 +70,7 @@ public final class Positions {
         final Location max = new Location(world, maxX, maxY, maxZ);
 
         // declare cuboid-selection
-        selection = new CuboidSelection(min, max);
+        this.selection = new CuboidSelection(min, max);
     }
 
     /**
@@ -80,7 +80,7 @@ public final class Positions {
      * @return Wenn keine der beiden {@link Location Locations} null ist {@code true}, ansonsten {@code false}.
      */
     private boolean canInitializeSelection() {
-        return one != null && two != null;
+        return this.one != null && this.two != null;
     }
 
 }

@@ -12,7 +12,11 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
 
-public class Redo implements CommandExecutor {
+/**
+ * Es wird der Befehl, mit dem sich rückgängig gemachte Änderungen wiederherstellen lassen, implementiert.
+ */
+public final class Redo implements CommandExecutor {
+    //<editor-fold desc="implementation">
     @Override
     public boolean onCommand(
         @NotNull final CommandSender sender,
@@ -62,4 +66,5 @@ public class Redo implements CommandExecutor {
         player.sendMessage(JWorldEdit.getPrefix() + "Die letzte Aktion wurde wiederhergestellt!");
         return true;
     }
+    //</editor-fold>
 }

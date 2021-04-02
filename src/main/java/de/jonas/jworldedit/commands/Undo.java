@@ -12,7 +12,11 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
 
-public class Undo implements CommandExecutor {
+/**
+ * Es wird der Befehl, mit dem sich vorgenommene Änderungen rückgängig machen lassen, implementiert.
+ */
+public final class Undo implements CommandExecutor {
+    //<editor-fold desc="implementation">
     @Override
     public boolean onCommand(
         @NotNull final CommandSender sender,
@@ -62,4 +66,5 @@ public class Undo implements CommandExecutor {
         player.sendMessage(JWorldEdit.getPrefix() + "Die letzte Aktion wurde rückgängig gemacht!");
         return true;
     }
+    //</editor-fold>
 }

@@ -5,6 +5,7 @@ import de.jonas.jworldedit.commands.Pos1;
 import de.jonas.jworldedit.commands.Pos2;
 import de.jonas.jworldedit.commands.Replace;
 import de.jonas.jworldedit.commands.Set;
+import de.jonas.jworldedit.commands.Undo;
 import de.jonas.jworldedit.listener.AxeListener;
 import lombok.Getter;
 import org.jetbrains.annotations.NotNull;
@@ -44,6 +45,11 @@ public enum PermissionType {
     @NotNull
     EXPAND(
         "expand"
+    ),
+    /** Der {@link PermissionType} für den {@link Undo Undo-Command}. */
+    @NotNull
+    UNDO(
+        "undo"
     );
 
     //<editor-fold desc="LOCAL FIELDS">

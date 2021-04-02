@@ -5,7 +5,7 @@ import de.jonas.jworldedit.CommandUtil;
 import de.jonas.jworldedit.CuboidSelection;
 import de.jonas.jworldedit.PermissionType;
 import de.jonas.jworldedit.Positions;
-import org.bukkit.Location;
+import de.jonas.jworldedit.SelectionLocation;
 import org.bukkit.Material;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -63,12 +63,14 @@ public final class Set implements CommandExecutor {
         // declare cuboid-selection
         final CuboidSelection selection = positions.getSelection();
 
+        assert selection != null;
+        positions.addSelection(selection);
+
         int count = 0;
 
         // set materials
-        assert selection != null;
-        for (final Location location : selection.getAllLocations()) {
-            location.getBlock().setType(material);
+        for (@NotNull final SelectionLocation selectionLocation : selection.getAllLocations()) {
+            selectionLocation.getLocation().getBlock().setType(material);
             count++;
         }
 

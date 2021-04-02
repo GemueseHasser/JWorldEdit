@@ -8,6 +8,8 @@ import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.LinkedList;
+
 /**
  * In dieser Klasse werden die beiden {@link Location Locations} gespeichert, die der {@link Player Spieler} immer
  * wieder neu markieren kann. Zudem kann hier eine {@link CuboidSelection} aus diesen {@link Location Locations} erzeugt
@@ -16,7 +18,16 @@ import org.jetbrains.annotations.Nullable;
 @NotNull
 public final class Positions {
 
+    //<editor-fold desc="CONSTANTS">
+    /** Die Anzahl an Aktionen, die rückgängig gemacht werden können. */
+    private static final int MAX_UNDO = 10;
+    //</editor-fold>
+
+
     //<editor-fold desc="STATIC FIELDS">
+    /** Die 10 letzten Aktionen. */
+    @NotNull
+    public final LinkedList<CuboidSelection> oldSelections = new LinkedList<>();
     /** Die erste {@link Location} der zwei markierten {@link Location Locations}. */
     @Nullable
     @Getter
@@ -81,6 +92,19 @@ public final class Positions {
      */
     private boolean canInitializeSelection() {
         return this.one != null && this.two != null;
+    }
+
+    /**
+     * Fügt eine bestimmte {@link CuboidSelection} zu der {@link LinkedList} der alten Aktionen hinzu.
+     *
+     * @param cuboidSelection Die {@link CuboidSelection}, die hinzugefügt wird.
+     */
+    public void addSelection(@NotNull final CuboidSelection cuboidSelection) {
+        if (oldSelections.size() >= MAX_UNDO) {
+            oldSelections.removeFirst();
+        }
+        oldSelections.addLast(cuboidSelection);
+        System.out.println(oldSelections.size());
     }
 
 }

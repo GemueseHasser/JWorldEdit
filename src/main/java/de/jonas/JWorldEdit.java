@@ -3,6 +3,7 @@ package de.jonas;
 import de.jonas.jworldedit.Positions;
 import de.jonas.jworldedit.commands.Pos1;
 import de.jonas.jworldedit.commands.Pos2;
+import de.jonas.jworldedit.commands.Replace;
 import de.jonas.jworldedit.commands.Set;
 import de.jonas.jworldedit.listener.AxeListener;
 import de.jonas.jworldedit.listener.JoinListener;
@@ -63,6 +64,7 @@ public final class JWorldEdit extends JavaPlugin {
         registerCommand("/pos1", new Pos1());
         registerCommand("/pos2", new Pos2());
         registerCommand("/set", new Set());
+        registerCommand("/replace", new Replace());
 
         // register listener
         final PluginManager pm = Bukkit.getPluginManager();

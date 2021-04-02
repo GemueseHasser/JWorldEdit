@@ -3,13 +3,13 @@ description: '${project.description}'
 version: '${project.version}'
 load: 'POSTWORLD'
 author: 'Jonas0206'
-authors: ['Jonas0206']
+authors: [ 'Jonas0206' ]
 website: '${project.url}'
 main: '${project.groupId}.${project.artifactId}.${project.name}'
-depend: []
-softdepend: []
+depend: [ ]
+softdepend: [ ]
 api-version: '1.13'
-loadbefore: []
+loadbefore: [ ]
 prefix: '${project.name}'
 
 commands:
@@ -22,3 +22,7 @@ commands:
   /set:
     description: 'Setzt alle markierten Blöcke neu!'
     usage: '</command> <material>'
+  /replace:
+    description: 'Ersetzt einen bestimmten Block im markierten Bereich durch einen anderen, oder ersetzt alle im
+    markierten Bereich gesetzten Blöcke zu einem neuen Block'
+    usage: '</command> <oldBlock> <newBlock> | </command> <newBlock>'

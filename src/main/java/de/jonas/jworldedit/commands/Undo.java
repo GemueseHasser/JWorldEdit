@@ -20,6 +20,7 @@ public class Undo implements CommandExecutor {
         @NotNull final String label,
         @NotNull final String[] args
     ) {
+        // check command
         final CommandUtil util = new CommandUtil(
             sender,
             0,
@@ -33,6 +34,7 @@ public class Undo implements CommandExecutor {
             return true;
         }
 
+        // declare player and current positions
         final Player player = util.getPlayer();
         assert player != null;
         final Positions positions = JWorldEdit.POSITIONS.get(player.getUniqueId());
@@ -42,12 +44,15 @@ public class Undo implements CommandExecutor {
             return true;
         }
 
+        // declare latest cuboid selection (1 before)
         final CuboidSelection latest = positions.oldSelections.getLast();
 
+        // restore 1 older cuboid selection
         for (@NotNull final SelectionLocation selectionLocation : latest.getAllLocations()) {
             selectionLocation.getLocation().getBlock().setType(selectionLocation.getType());
         }
 
+        // remove restored selection
         positions.oldSelections.removeLast();
 
         player.sendMessage(JWorldEdit.getPrefix() + "Die letzte Aktion wurde rückgängig gemacht!");

@@ -13,9 +13,9 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
 
-public class Replace implements CommandExecutor {
+import static de.jonas.jworldedit.CommandUtil.WRONG_MATERIAL_MESSAGE;
 
-    private static final String WRONG_MATERIAL_MESSAGE = "Bitte wähle ein gültiges Material!";
+public class Replace implements CommandExecutor {
 
     @Override
     public boolean onCommand(

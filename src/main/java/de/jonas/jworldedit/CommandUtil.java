@@ -2,6 +2,7 @@ package de.jonas.jworldedit;
 
 import de.jonas.JWorldEdit;
 import lombok.Getter;
+import org.bukkit.Material;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
@@ -16,6 +17,8 @@ import org.jetbrains.annotations.Range;
 public final class CommandUtil {
 
     //<editor-fold desc="CONSTANTS">
+    /** Die Nachricht, die gesendet wird, wenn ein falsches bzw. nicht existierendes {@link Material} angegeben wurde. */
+    public static final String WRONG_MATERIAL_MESSAGE = "Bitte wähle ein gültiges Material!";
     /** Die Nachricht, die gesendet wird, wenn ein {@link Player} nicht die nötigen Rechte für einen Befehl hat. */
     private static final String NO_PERMISSIONS = "Dazu hast du keine Rechte!";
     /** Die Nachricht, die gesendet wird, wenn der {@link CommandSender} kein {@link Player} ist. */

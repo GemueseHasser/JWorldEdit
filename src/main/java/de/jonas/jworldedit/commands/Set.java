@@ -13,6 +13,8 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
 
+import static de.jonas.jworldedit.CommandUtil.WRONG_MATERIAL_MESSAGE;
+
 /**
  * Es wird der Befehl, um den quadratischen Bereich zwischen den zuvor gesetzten Positionen mit einem bestimmten
  * Material auszufüllen, implementiert.
@@ -41,7 +43,7 @@ public final class Set implements CommandExecutor {
 
         assert player != null;
         if (material == null) {
-            player.sendMessage(JWorldEdit.getPrefix() + "Bitte wähle ein gültiges Material!");
+            player.sendMessage(JWorldEdit.getPrefix() + WRONG_MATERIAL_MESSAGE);
             return true;
         }
 

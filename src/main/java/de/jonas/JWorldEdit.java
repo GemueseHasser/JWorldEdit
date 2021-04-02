@@ -11,6 +11,7 @@ import net.md_5.bungee.api.chat.BaseComponent;
 import net.md_5.bungee.api.chat.ComponentBuilder;
 import org.bukkit.Bukkit;
 import org.bukkit.command.CommandExecutor;
+import org.bukkit.entity.Player;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.jetbrains.annotations.NotNull;
@@ -67,6 +68,11 @@ public final class JWorldEdit extends JavaPlugin {
         final PluginManager pm = Bukkit.getPluginManager();
         pm.registerEvents(new AxeListener(), this);
         pm.registerEvents(new JoinListener(), this);
+
+        // load players on server
+        for (final Player all : Bukkit.getOnlinePlayers()) {
+            POSITIONS.put(all.getUniqueId(), new Positions());
+        }
     }
     //</editor-fold>
 

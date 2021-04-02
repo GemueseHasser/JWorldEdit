@@ -1,6 +1,7 @@
 package de.jonas.jworldedit.listener;
 
 import de.jonas.JWorldEdit;
+import de.jonas.jworldedit.PermissionType;
 import de.jonas.jworldedit.Positions;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -24,6 +25,10 @@ public final class AxeListener implements Listener {
     public void onClickWithAxe(@NotNull final PlayerInteractEvent e) {
         // declare item in hand
         final ItemStack hand = e.getPlayer().getInventory().getItemInMainHand();
+
+        if (!e.getPlayer().hasPermission(PermissionType.AXE.getPermission())) {
+            return;
+        }
 
         // check if player has a wooden axe in hand
         if (!hand.getType().equals(Material.WOODEN_AXE)) {

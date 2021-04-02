@@ -3,6 +3,7 @@ package de.jonas.jworldedit;
 import de.jonas.jworldedit.commands.Pos1;
 import de.jonas.jworldedit.commands.Pos2;
 import de.jonas.jworldedit.commands.Set;
+import de.jonas.jworldedit.listener.AxeListener;
 import lombok.Getter;
 import org.jetbrains.annotations.NotNull;
 
@@ -18,6 +19,10 @@ public enum PermissionType {
     /** Der {@link PermissionType} für den {@link Pos2 Pos2-Command}. */
     POS_2(
         "pos2"
+    ),
+    /** Der {@link PermissionType} für den {@link AxeListener}. */
+    AXE(
+        "axe"
     ),
     /** Der {@link PermissionType} für den {@link Set Set-Command}. */
     SET(

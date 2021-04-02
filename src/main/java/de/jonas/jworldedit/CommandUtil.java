@@ -83,7 +83,7 @@ public final class CommandUtil {
     public boolean check() {
         // check if player instanceof sender
         if (!(sender instanceof Player)) {
-            sender.sendMessage(JWorldEdit.getPrefix() + NO_PERMISSIONS);
+            sender.sendMessage(JWorldEdit.getPrefix() + NO_PLAYER);
             return true;
         }
 
@@ -92,7 +92,7 @@ public final class CommandUtil {
 
         // check if player hast enough permissions
         if (!player.hasPermission(permissionType.getPermission())) {
-            player.sendMessage(JWorldEdit.getPrefix() + NO_PLAYER);
+            player.sendMessage(JWorldEdit.getPrefix() + NO_PERMISSIONS);
             return true;
         }
 

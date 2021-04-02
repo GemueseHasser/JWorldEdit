@@ -1,7 +1,9 @@
 package de.jonas.jworldedit;
 
+import de.jonas.jworldedit.commands.Expand;
 import de.jonas.jworldedit.commands.Pos1;
 import de.jonas.jworldedit.commands.Pos2;
+import de.jonas.jworldedit.commands.Replace;
 import de.jonas.jworldedit.commands.Set;
 import de.jonas.jworldedit.listener.AxeListener;
 import lombok.Getter;
@@ -28,9 +30,11 @@ public enum PermissionType {
     SET(
         "set"
     ),
+    /** Der {@link PermissionType} für den {@link Replace Replace-Command}. */
     REPLACE(
         "replace"
     ),
+    /** Der {@link PermissionType} für den {@link Expand Expand-Command}. */
     EXPAND(
         "expand"
     );

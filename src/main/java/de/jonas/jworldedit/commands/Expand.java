@@ -12,7 +12,11 @@ import org.jetbrains.annotations.NotNull;
 
 import static de.jonas.jworldedit.CommandUtil.NULL_POSITION;
 
+/**
+ * Es wird der Befehl, um den zuvor markierten Bereich zu erweitern, implementiert.
+ */
 public class Expand implements CommandExecutor {
+    //<editor-fold desc="implementation">
     @Override
     public boolean onCommand(
         @NotNull final CommandSender sender,
@@ -59,4 +63,5 @@ public class Expand implements CommandExecutor {
         player.sendMessage(JWorldEdit.getPrefix() + "Der Bereich wurde erweitert!");
         return true;
     }
+    //</editor-fold>
 }

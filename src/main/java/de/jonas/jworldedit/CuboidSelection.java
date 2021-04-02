@@ -25,10 +25,10 @@ public final class CuboidSelection {
     /** Die größte {@link Location}, die in dieser {@link CuboidSelection} vorkommt. */
     @NotNull
     private final Location max;
-    /** Alle {@link Location Locations}, die zwischen der kleinsten und größten {@link Location} liegen. */
+    /** Alle {@link SelectionLocation Locations}, die zwischen der kleinsten und größten {@link Location} liegen. */
     @NotNull
     @Getter
-    private final List<Location> allLocations;
+    private final List<SelectionLocation> allLocations;
     //</editor-fold>
 
 
@@ -66,7 +66,11 @@ public final class CuboidSelection {
         for (double x = min.getX(); x < max.getX() + 1; x++) {
             for (double y = min.getY(); y < max.getY() + 1; y++) {
                 for (double z = min.getZ(); z < max.getZ() + 1; z++) {
-                    allLocations.add(new Location(world, x, y, z));
+                    final Location location = new Location(world, x, y, z);
+                    allLocations.add(new SelectionLocation(
+                        location,
+                        location.getBlock().getType()
+                    ));
                 }
             }
         }

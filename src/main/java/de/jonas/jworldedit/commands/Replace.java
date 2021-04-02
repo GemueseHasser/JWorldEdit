@@ -5,6 +5,7 @@ import de.jonas.jworldedit.CommandUtil;
 import de.jonas.jworldedit.CuboidSelection;
 import de.jonas.jworldedit.PermissionType;
 import de.jonas.jworldedit.Positions;
+import de.jonas.jworldedit.SelectionLocation;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.command.Command;
@@ -51,6 +52,9 @@ public final class Replace implements CommandExecutor {
 
         final CuboidSelection selection = positions.getSelection();
 
+        assert selection != null;
+        positions.addSelection(selection);
+
         if (materialOne == null) {
             player.sendMessage(JWorldEdit.getPrefix() + WRONG_MATERIAL_MESSAGE);
             return true;
@@ -58,9 +62,9 @@ public final class Replace implements CommandExecutor {
 
         int count = 0;
 
-        assert selection != null;
         if (args.length == 1) {
-            for (final Location location : selection.getAllLocations()) {
+            for (@NotNull final SelectionLocation selectionLocation : selection.getAllLocations()) {
+                final Location location = selectionLocation.getLocation();
                 if (location.getBlock().getType().equals(Material.AIR)) {
                     continue;
                 }
@@ -78,7 +82,8 @@ public final class Replace implements CommandExecutor {
             return true;
         }
 
-        for (final Location location : selection.getAllLocations()) {
+        for (@NotNull final SelectionLocation selectionLocation : selection.getAllLocations()) {
+            final Location location = selectionLocation.getLocation();
             if (!location.getBlock().getType().equals(materialOne)) {
                 continue;
             }

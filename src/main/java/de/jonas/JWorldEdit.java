@@ -6,6 +6,7 @@ import de.jonas.jworldedit.commands.Pos1;
 import de.jonas.jworldedit.commands.Pos2;
 import de.jonas.jworldedit.commands.Replace;
 import de.jonas.jworldedit.commands.Set;
+import de.jonas.jworldedit.commands.Undo;
 import de.jonas.jworldedit.listener.AxeListener;
 import de.jonas.jworldedit.listener.JoinListener;
 import lombok.Getter;
@@ -70,6 +71,7 @@ public class JWorldEdit extends JavaPlugin {
         registerCommand("/set", new Set());
         registerCommand("/replace", new Replace());
         registerCommand("/expand", new Expand());
+        registerCommand("/undo", new Undo());
 
         // register listener
         final PluginManager pm = Bukkit.getPluginManager();

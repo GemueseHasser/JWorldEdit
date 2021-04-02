@@ -29,3 +29,6 @@ commands:
   /expand:
     description: 'Erweitert einen zuvor markierten Bereich!'
     usage: '</command> <vert>'
+  /undo:
+    description: 'Macht eine zuvor getätigte Aktion rückgängig!'
+    usage: '</command>'

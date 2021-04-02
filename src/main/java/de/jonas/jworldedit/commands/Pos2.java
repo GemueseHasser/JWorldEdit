@@ -12,6 +12,7 @@ import org.jetbrains.annotations.NotNull;
 /**
  * Es wird der Befehl, um die zweite Position mithilfe eines Befehls zu setzen, implementiert.
  */
+@NotNull
 public final class Pos2 implements CommandExecutor {
     //<editor-fold desc="implementation">
     @Override

@@ -3,7 +3,6 @@ package de.jonas.jworldedit.commands;
 import de.jonas.JWorldEdit;
 import de.jonas.jworldedit.CommandUtil;
 import de.jonas.jworldedit.PermissionType;
-import de.jonas.jworldedit.Positions;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -13,6 +12,7 @@ import org.jetbrains.annotations.NotNull;
 /**
  * Es wird der Befehl, um die erste Position mithilfe eines Befehls zu setzen, implementiert.
  */
+@NotNull
 public final class Pos1 implements CommandExecutor {
     //<editor-fold desc="implementation">
     @Override

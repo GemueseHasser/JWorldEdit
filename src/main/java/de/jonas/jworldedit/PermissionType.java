@@ -12,29 +12,36 @@ import org.jetbrains.annotations.NotNull;
 /**
  * Ein {@link PermissionType} beinhaltet für einen Befehl die passende Permission.
  */
+@NotNull
 public enum PermissionType {
 
     /** Der {@link PermissionType} für den {@link Pos1 Pos1-Command}. */
+    @NotNull
     POS_1(
         "pos1"
     ),
     /** Der {@link PermissionType} für den {@link Pos2 Pos2-Command}. */
+    @NotNull
     POS_2(
         "pos2"
     ),
     /** Der {@link PermissionType} für den {@link AxeListener}. */
+    @NotNull
     AXE(
         "axe"
     ),
     /** Der {@link PermissionType} für den {@link Set Set-Command}. */
+    @NotNull
     SET(
         "set"
     ),
     /** Der {@link PermissionType} für den {@link Replace Replace-Command}. */
+    @NotNull
     REPLACE(
         "replace"
     ),
     /** Der {@link PermissionType} für den {@link Expand Expand-Command}. */
+    @NotNull
     EXPAND(
         "expand"
     );
@@ -55,6 +62,7 @@ public enum PermissionType {
      *
      * @param permission Die halbe permission, woraus die fertige Permission erzeugt wird.
      */
+    @NotNull
     PermissionType(
         @NotNull final String permission
     ) {

@@ -42,6 +42,7 @@ public final class CuboidSelection {
      * @param min Die kleinste {@link Location}, die in dieser {@link CuboidSelection} vorkommt.
      * @param max Die größte {@link Location}, die in dieser {@link CuboidSelection} vorkommt.
      */
+    @NotNull
     public CuboidSelection(
         @NotNull final Location min,
         @NotNull final Location max

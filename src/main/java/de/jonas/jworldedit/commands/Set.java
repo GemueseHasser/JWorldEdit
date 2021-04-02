@@ -20,6 +20,7 @@ import static de.jonas.jworldedit.CommandUtil.WRONG_MATERIAL_MESSAGE;
  * Es wird der Befehl, um den quadratischen Bereich zwischen den zuvor gesetzten Positionen mit einem bestimmten
  * Material auszufüllen, implementiert.
  */
+@NotNull
 public final class Set implements CommandExecutor {
     //<editor-fold desc="implementation">
     @Override

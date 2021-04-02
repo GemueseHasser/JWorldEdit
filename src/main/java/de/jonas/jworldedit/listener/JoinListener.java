@@ -14,7 +14,8 @@ import java.util.UUID;
  * Dieser {@link Listener} wird beim Joinen eines jeden {@link Player Spielers} ausgelöst. Hiermit bekommt dann jeder
  * {@link Player Spieler} eine {@link Positions Positions-Instanz} zugewiesen.
  */
-public class JoinListener implements Listener {
+@NotNull
+public final class JoinListener implements Listener {
     //<editor-fold desc="implementation">
     @EventHandler
     public void onJoin(@NotNull final PlayerJoinEvent e) {

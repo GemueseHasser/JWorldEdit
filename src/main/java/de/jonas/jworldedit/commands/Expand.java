@@ -15,7 +15,8 @@ import static de.jonas.jworldedit.CommandUtil.NULL_POSITION;
 /**
  * Es wird der Befehl, um den zuvor markierten Bereich zu erweitern, implementiert.
  */
-public class Expand implements CommandExecutor {
+@NotNull
+public final class Expand implements CommandExecutor {
     //<editor-fold desc="implementation">
     @Override
     public boolean onCommand(

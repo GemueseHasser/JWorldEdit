@@ -19,6 +19,7 @@ import java.util.Objects;
 /**
  * Es wird mithilfe dieses {@link Listener} das Anklicken mit einer Axt in der Hand eines Blocks verarbeitet.
  */
+@NotNull
 public final class AxeListener implements Listener {
     //<editor-fold desc="implementation">
     @EventHandler

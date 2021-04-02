@@ -18,7 +18,8 @@ import static de.jonas.jworldedit.CommandUtil.WRONG_MATERIAL_MESSAGE;
 /**
  * Es wird der Befehl, um eine bestimmte Blockart oder alle gesetzten Blöcke zu ersetzen, implementiert.
  */
-public class Replace implements CommandExecutor {
+@NotNull
+public final class Replace implements CommandExecutor {
     //<editor-fold desc="implementation">
     @Override
     public boolean onCommand(

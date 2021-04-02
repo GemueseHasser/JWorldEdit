@@ -14,35 +14,46 @@ import org.jetbrains.annotations.Range;
  * Mithilfe dieser Util-Klasse, kann man eine Implementation eines {@link CommandExecutor} vereinfachen und sich lästige
  * Abfragen sparen.
  */
+@NotNull
 public final class CommandUtil {
 
     //<editor-fold desc="CONSTANTS">
     /** Die Nachricht, die gesendet wird, wenn ein falsches bzw. nicht existierendes {@link Material} angegeben wurde. */
+    @NotNull
     public static final String WRONG_MATERIAL_MESSAGE = "Bitte wähle ein gültiges Material!";
     /**
      * Die Nachricht, die gesendet wird, wenn der ein {@link Player} versucht einen Bereich zu editieren ohne die {@link
      * Positions} festegelegt zu haben.
      */
+    @NotNull
     public static final String NULL_POSITION = "Bitte lege zuerst zwei Positionen fest!";
     /** Die Nachricht, die gesendet wird, wenn ein {@link Player} nicht die nötigen Rechte für einen Befehl hat. */
+    @NotNull
     private static final String NO_PERMISSIONS = "Dazu hast du keine Rechte!";
     /** Die Nachricht, die gesendet wird, wenn der {@link CommandSender} kein {@link Player} ist. */
+    @NotNull
     private static final String NO_PLAYER = "Du musst ein Spieler sein!";
     //</editor-fold>
 
 
     //<editor-fold desc="LOCAL FIELDS">
     /** Der {@link CommandSender}, der den Befehl absendet. */
+    @NotNull
     private final CommandSender sender;
     /** Die minimale Länge des Befehls. */
+    @Range(from = 0, to = Integer.MAX_VALUE)
     private final int minLength;
     /** Die maximale Länge des Befehls. */
+    @Range(from = 0, to = Integer.MAX_VALUE)
     private final int maxLength;
     /** Die neben dem eigentlichen Befehl angegebenen Argumente. */
+    @NotNull
     private final String[] args;
     /** Der Befehl, der eingegeben werden soll. */
+    @NotNull
     private final String command;
     /** Der {@link PermissionType} der für den Befehl benötigt wird. */
+    @NotNull
     private final PermissionType permissionType;
 
     /**
@@ -71,6 +82,7 @@ public final class CommandUtil {
      * @param permissionType Der {@link PermissionType}, den der jeweilige {@link Player Spieler} benötigt, um diesen
      *                       Befehl ausführen zu können.
      */
+    @NotNull
     public CommandUtil(
         @NotNull final CommandSender sender,
         @Range(from = 0, to = Integer.MAX_VALUE) final int minLength,
@@ -123,6 +135,7 @@ public final class CommandUtil {
      *
      * @return Die Nachricht, wie der Befehl richtig einzugeben ist.
      */
+    @NotNull
     public String getWrongCommand() {
         return JWorldEdit.getPrefix() + "Bitte benutze //" + command;
     }

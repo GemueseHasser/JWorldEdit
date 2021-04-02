@@ -18,6 +18,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.HashMap;
 import java.util.Objects;
@@ -37,6 +38,7 @@ public final class JWorldEdit extends JavaPlugin {
 
     //<editor-fold desc="CONSTANTS">
     /** Eine {@link HashMap}, die für jeden Spieler der online ist, eine {@link Positions Positions-Instanz} enthält. */
+    @NotNull
     public static final HashMap<UUID, Positions> POSITIONS = new HashMap<>();
     //</editor-fold>
 
@@ -98,6 +100,7 @@ public final class JWorldEdit extends JavaPlugin {
      * @return Das {@link Material}, mit dem bestimmten Namen. Zufalls der Name bei keinem {@link Material} existiert,
      *     wird null zurück-gegeben.
      */
+    @Nullable
     public Material getMaterial(@NotNull final String name) {
         final String upper = name.toUpperCase();
         final Material material;

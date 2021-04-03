@@ -11,6 +11,7 @@ import de.jonas.jworldedit.commands.Replace;
 import de.jonas.jworldedit.commands.Set;
 import de.jonas.jworldedit.commands.Undo;
 import de.jonas.jworldedit.listener.AxeListener;
+import de.jonas.jworldedit.listener.BrushListener;
 import de.jonas.jworldedit.listener.JoinListener;
 import lombok.Getter;
 import net.md_5.bungee.api.chat.BaseComponent;
@@ -87,6 +88,7 @@ public class JWorldEdit extends JavaPlugin {
         final PluginManager pm = Bukkit.getPluginManager();
         pm.registerEvents(new AxeListener(), this);
         pm.registerEvents(new JoinListener(), this);
+        pm.registerEvents(new BrushListener(), this);
 
         // load players on server
         for (final Player all : Bukkit.getOnlinePlayers()) {

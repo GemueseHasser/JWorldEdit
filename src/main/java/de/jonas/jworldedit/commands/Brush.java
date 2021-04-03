@@ -2,6 +2,7 @@ package de.jonas.jworldedit.commands;
 
 import de.jonas.JWorldEdit;
 import de.jonas.jworldedit.BrushItem;
+import de.jonas.jworldedit.BrushType;
 import de.jonas.jworldedit.CommandUtil;
 import de.jonas.jworldedit.PermissionType;
 import org.bukkit.Material;
@@ -25,9 +26,9 @@ public final class Brush implements CommandExecutor {
         final CommandUtil util = new CommandUtil(
             sender,
             2,
-            2,
+            3,
             args,
-            "brush <material> <size>",
+            "brush <type> (<material>) <size>",
             PermissionType.BRUSH
         );
 
@@ -38,17 +39,35 @@ public final class Brush implements CommandExecutor {
         // declare player
         final Player player = util.getPlayer();
 
-        final Material material = JWorldEdit.getInstance().getMaterial(args[0]);
+        final Material material;
+        final BrushType type;
         final int size;
 
         assert player != null;
-        if (material == null) {
-            player.sendMessage(JWorldEdit.getPrefix() + WRONG_MATERIAL_MESSAGE);
-            return true;
+        if (args.length == 2) {
+            if (!args[0].equalsIgnoreCase("tunnel")) {
+                player.sendMessage(JWorldEdit.getPrefix() + util.getWrongCommand());
+                return true;
+            }
+            material = Material.AIR;
+            type = BrushType.TUNNEL;
+        } else {
+            if (!args[0].equalsIgnoreCase("normal")) {
+                player.sendMessage(JWorldEdit.getPrefix() + util.getWrongCommand());
+                return true;
+            }
+
+            material = JWorldEdit.getInstance().getMaterial(args[1]);
+
+            if (material == null) {
+                player.sendMessage(JWorldEdit.getPrefix() + WRONG_MATERIAL_MESSAGE);
+                return true;
+            }
+            type = BrushType.NORMAL;
         }
 
         try {
-            size = Integer.parseInt(args[1]);
+            size = Integer.parseInt(args[args.length - 1]);
         } catch (@NotNull final IllegalArgumentException ignored) {
             player.sendMessage(JWorldEdit.getPrefix() + util.getWrongCommand());
             return true;
@@ -57,8 +76,11 @@ public final class Brush implements CommandExecutor {
         final BrushItem brushItem = new BrushItem(
             player.getInventory().getItemInMainHand(),
             material,
-            size
+            size,
+            type
         );
+
+        JWorldEdit.BRUSH_ITEMS.removeIf(item -> item.getStack().equals(player.getInventory().getItemInMainHand()));
         JWorldEdit.BRUSH_ITEMS.add(brushItem);
 
         player.sendMessage(JWorldEdit.getPrefix() + "Dein Item wurde mit einer Brush versehen!");

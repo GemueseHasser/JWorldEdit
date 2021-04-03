@@ -37,6 +37,6 @@ commands:
     usage: '</command>'
   /brush:
     description: 'Versieht das Item in deiner Hand mit einer Brush!'
-    usage: '</command> <material> <size>'
+    usage: '</command> <type> (<material>) <size>'
     aliases:
       - /br

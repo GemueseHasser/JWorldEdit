@@ -25,5 +25,9 @@ public final class BrushItem {
     @Range(from = 0, to = Integer.MAX_VALUE)
     @Getter
     private final int size;
+    /** Der {@link BrushType Typ} des {@link BrushItem}. */
+    @NotNull
+    @Getter
+    private final BrushType type;
     //</editor-fold>
 }

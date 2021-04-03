@@ -15,6 +15,7 @@ import org.jetbrains.annotations.NotNull;
 /**
  * Es wird der Befehl, mit dem sich rückgängig gemachte Änderungen wiederherstellen lassen, implementiert.
  */
+@NotNull
 public final class Redo implements CommandExecutor {
     //<editor-fold desc="implementation">
     @Override

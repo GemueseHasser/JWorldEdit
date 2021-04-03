@@ -15,6 +15,7 @@ import org.jetbrains.annotations.NotNull;
 /**
  * Es wird der Befehl, mit dem sich vorgenommene Änderungen rückgängig machen lassen, implementiert.
  */
+@NotNull
 public final class Undo implements CommandExecutor {
     //<editor-fold desc="implementation">
     @Override

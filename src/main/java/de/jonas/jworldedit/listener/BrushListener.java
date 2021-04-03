@@ -31,6 +31,8 @@ public final class BrushListener implements Listener {
             return;
         }
 
+        e.setCancelled(true);
+
         final Player player = e.getPlayer();
         for (final BrushItem item : JWorldEdit.BRUSH_ITEMS) {
             if (!item.getStack().equals(clicked)) {
@@ -85,9 +87,9 @@ public final class BrushListener implements Listener {
         @Range(from = 0, to = Integer.MAX_VALUE) final int size
     ) {
         location.getBlock().setType(material);
-        for (int x = location.getBlockX() - size; x <= location.getBlockX() + size; x++) {
-            for (int y = location.getBlockY() - size; y <= location.getBlockY() + size; y++) {
-                for (int z = location.getBlockZ() - size; z <= location.getBlockZ() + size; z++) {
+        for (int x = location.getBlockX() - size / 2; x <= location.getBlockX() + size * 2; x++) {
+            for (int y = location.getBlockY() - size / 2; y <= location.getBlockY() + size * 2; y++) {
+                for (int z = location.getBlockZ() - size / 2; z <= location.getBlockZ() + size * 2; z++) {
                     final World world = location.getWorld();
                     assert world != null;
                     world.getBlockAt(x, y, z).setType(material);

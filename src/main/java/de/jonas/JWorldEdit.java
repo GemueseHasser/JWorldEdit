@@ -1,6 +1,8 @@
 package de.jonas;
 
+import de.jonas.jworldedit.BrushItem;
 import de.jonas.jworldedit.Positions;
+import de.jonas.jworldedit.commands.Brush;
 import de.jonas.jworldedit.commands.Expand;
 import de.jonas.jworldedit.commands.Pos1;
 import de.jonas.jworldedit.commands.Pos2;
@@ -22,7 +24,9 @@ import org.bukkit.plugin.java.JavaPlugin;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Objects;
 import java.util.UUID;
 
@@ -42,6 +46,9 @@ public class JWorldEdit extends JavaPlugin {
     /** Eine {@link HashMap}, die für jeden Spieler der online ist, eine {@link Positions Positions-Instanz} enthält. */
     @NotNull
     public static final HashMap<UUID, Positions> POSITIONS = new HashMap<>();
+    /** Eine {@link List Liste} aller aktiven {@link BrushItem BrushItems}. */
+    @NotNull
+    public static final List<BrushItem> BRUSH_ITEMS = new ArrayList<>();
     //</editor-fold>
 
 
@@ -74,6 +81,7 @@ public class JWorldEdit extends JavaPlugin {
         registerCommand("/expand", new Expand());
         registerCommand("/undo", new Undo());
         registerCommand("/redo", new Redo());
+        registerCommand("/brush", new Brush());
 
         // register listener
         final PluginManager pm = Bukkit.getPluginManager();

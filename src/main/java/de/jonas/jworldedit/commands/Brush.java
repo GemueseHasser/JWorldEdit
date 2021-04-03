@@ -19,6 +19,7 @@ import static de.jonas.jworldedit.CommandUtil.WRONG_MATERIAL_MESSAGE;
  */
 @NotNull
 public final class Brush implements CommandExecutor {
+    //<editor-fold desc="implementation">
     @Override
     public boolean onCommand(
         @NotNull final CommandSender sender,
@@ -90,4 +91,5 @@ public final class Brush implements CommandExecutor {
         player.sendMessage(JWorldEdit.getPrefix() + "Dein Item wurde mit einer Brush versehen!");
         return true;
     }
+    //</editor-fold>
 }

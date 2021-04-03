@@ -35,3 +35,8 @@ commands:
   /redo:
     description: 'Stellt eine zuvor rückgängig gemachte Aktion wieder her!'
     usage: '</command>'
+  /brush:
+    description: 'Versieht das Item in deiner Hand mit einer Brush!'
+    usage: '</command> <type> (<material>) <size>'
+    aliases:
+      - /br

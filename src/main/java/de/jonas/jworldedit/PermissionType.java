@@ -1,5 +1,6 @@
 package de.jonas.jworldedit;
 
+import de.jonas.jworldedit.commands.Brush;
 import de.jonas.jworldedit.commands.Expand;
 import de.jonas.jworldedit.commands.Pos1;
 import de.jonas.jworldedit.commands.Pos2;
@@ -56,6 +57,11 @@ public enum PermissionType {
     @NotNull
     REDO(
         "redo"
+    ),
+    /** Der {@link PermissionType} für den {@link Brush Brush-Command}. */
+    @NotNull
+    BRUSH(
+        "brush"
     );
 
     //<editor-fold desc="LOCAL FIELDS">

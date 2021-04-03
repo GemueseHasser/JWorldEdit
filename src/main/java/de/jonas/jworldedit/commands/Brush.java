@@ -14,6 +14,10 @@ import org.jetbrains.annotations.NotNull;
 
 import static de.jonas.jworldedit.CommandUtil.WRONG_MATERIAL_MESSAGE;
 
+/**
+ * Es wird der Befehl, mit dem man Items mit einer Brush belegen kann, implementiert.
+ */
+@NotNull
 public final class Brush implements CommandExecutor {
     @Override
     public boolean onCommand(
